@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phòng Thí Nghiệm Ảo - Hóa Học & Sinh Học</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <i class="fas fa-flask"></i>
+        <h1>Phòng Thí Nghiệm Ảo</h1>
+      </div>
+      <nav class="nav">
+        <a href="#home" class="nav-link active" data-section="home">
+          <i class="fas fa-home"></i> Trang Chủ
+        </a>
+        <a href="#chemistry" class="nav-link" data-section="chemistry">
+          <i class="fas fa-atom"></i> Hóa Học
+        </a>
+        <a href="#biology" class="nav-link" data-section="biology">
+          <i class="fas fa-dna"></i> Sinh Học
+        </a>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Home Section -->
+      <section id="home" class="section active">
+        <div class="hero">
+          <h2>Chào mừng đến với Phòng Thí Nghiệm Ảo</h2>
+          <p>Khám phá thế giới khoa học qua các thí nghiệm tương tác</p>
+
+          <div class="experiment-grid">
+            <div class="experiment-card" data-experiment="chemistry">
+              <div class="card-icon">
+                <i class="fas fa-flask"></i>
+              </div>
+              <h3>Thí Nghiệm Hóa Học</h3>
+              <p>Pha trộn các dung dịch và quan sát phản ứng</p>
+              <button class="start-btn">Bắt Đầu</button>
+            </div>
+
+            <div class="experiment-card" data-experiment="biology">
+              <div class="card-icon">
+                <i class="fas fa-microscope"></i>
+              </div>
+              <h3>Thí Nghiệm Sinh Học</h3>
+              <p>Quan sát cấu trúc tế bào qua kính hiển vi</p>
+              <button class="start-btn">Bắt Đầu</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Chemistry Section -->
+      <section id="chemistry" class="section">
+        <div class="lab-container">
+          <h2>Thí Nghiệm Hóa Học - Pha Trộn Dung Dịch</h2>
+
+          <div class="experiment-area">
+            <div class="reagents-panel">
+              <h3>Hóa Chất</h3>
+              <div class="reagent-tabs">
+                <button class="reagent-tab active" data-category="basic">Cơ Bản</button>
+                <button class="reagent-tab" data-category="advanced">Nâng Cao</button>
+                <button class="reagent-tab" data-category="indicators">Chỉ Thị</button>
+              </div>
+
+              <div class="reagent-category active" id="basic-reagents">
+                <div class="reagent-list">
+                  <div class="reagent" data-chemical="HCl">
+                    <div class="reagent-bottle red">
+                      <i class="fas fa-flask"></i>
+                    </div>
+                    <span>HCl</span>
+                  </div>
+                  <div class="reagent" data-chemical="NaOH">
+                    <div class="reagent-bottle blue">
+                      <i class="fas fa-flask"></i>
+                    </div>
+                    <span>NaOH</span>
+                  </div>
+                  <div class="reagent" data-chemical="H2SO4">
+                    <div class="reagent-bottle yellow">
+                      <i class="fas fa-flask"></i>
+                    </div>
+                    <span>H₂SO₄</span>
+                  </div>
+                  <div class="reagent" data-chemical="CuSO4">
+                    <div class="reagent-bottle cyan">
+                      <i class="fas fa-flask"></i>
+                    </div>
+                    <span>CuSO₄</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="reagent-category" id="advanced-reagents">
+                <div class="reagent-list">
+                  <div class="reagent" data-chemical="FeCl3">
+                    <div class="reagent-bottle orange">
+                      <i class="fas fa-flask"></i>
+                    </div>
+                    <span>FeCl₃</span>
+                  </div>
+                  <div class="reagent" data-chemical="AgNO3">
+                    <div class="reagent-bottle silver">
+                      <i class="fas fa-flask"></i>
+                    </div>
+                    <span>AgNO₃</span>
+                  </div>
+                  <div class="reagent" data-chemical="KMnO4">
+                    <div class="reagent-bottle violet">
+                      <i class="fas fa-flask"></i>
+                    </div>
+                    <span>KMnO₄</span>
+                  </div>
+                  <div class="reagent" data-chemical="Ca(OH)2">
+                    <div class="reagent-bottle lightblue">
+                      <i class="fas fa-flask"></i>
+                    </div>
+                    <span>Ca(OH)₂</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="reagent-category" id="indicators-reagents">
+                <div class="reagent-list">
+                  <div class="reagent" data-chemical="phenolphthalein">
+                    <div class="reagent-bottle purple">
+                      <i class="fas fa-flask"></i>
+                    </div>
+                    <span>Phenolphthalein</span>
+                  </div>
+                  <div class="reagent" data-chemical="methylorange">
+                    <div class="reagent-bottle orange-light">
+                      <i class="fas fa-flask"></i>
+                    </div>
+                    <span>Methyl Orange</span>
+                  </div>
+                  <div class="reagent" data-chemical="litmus">
+                    <div class="reagent-bottle pink">
+                      <i class="fas fa-flask"></i>
+                    </div>
+                    <span>Quỳ tím</span>
+                  </div>
+                  <div class="reagent" data-chemical="iodine">
+                    <div class="reagent-bottle brown">
+                      <i class="fas fa-flask"></i>
+                    </div>
+                    <span>I₂</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mol-input-section">
+                <h4>Nhập số mol</h4>
+                <div class="mol-controls">
+                  <label for="molAmount">Số mol:</label>
+                  <input type="number" id="molAmount" min="0.1" max="10" step="0.1" value="1.0">
+                  <span class="mol-unit">mol</span>
+                </div>
+                <div class="concentration-info">
+                  <span>Nồng độ: <span id="concentrationValue">1.0 M</span></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="workspace">
+              <div class="beaker-container">
+                <div class="beaker" id="mainBeaker">
+                  <div class="liquid" id="liquidLevel"></div>
+                  <div class="beaker-markings"></div>
+                </div>
+                <div class="beaker-label">Cốc thí nghiệm</div>
+              </div>
+
+              <div class="controls">
+                <button id="clearBeaker" class="control-btn">
+                  <i class="fas fa-trash"></i> Làm Sạch
+                </button>
+                <button id="heatBeaker" class="control-btn">
+                  <i class="fas fa-fire"></i> Đun Nóng
+                </button>
+              </div>
+            </div>
+
+            <div class="results-panel">
+              <h3>Kết Quả</h3>
+              <div class="reaction-display" id="reactionDisplay">
+                <p>Chọn hóa chất để bắt đầu thí nghiệm</p>
+              </div>
+              <div class="properties-display" id="propertiesDisplay">
+                <div class="property">
+                  <span>pH:</span>
+                  <span id="phValue">7.0</span>
+                </div>
+                <div class="property">
+                  <span>Nhiệt độ:</span>
+                  <span id="temperature">25°C</span>
+                </div>
+                <div class="property">
+                  <span>Màu sắc:</span>
+                  <span id="colorValue">Trong suốt</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Biology Section -->
+      <section id="biology" class="section">
+        <div class="lab-container">
+          <h2>Thí Nghiệm Sinh Học - Quan Sát Tế Bào</h2>
+
+          <div class="microscope-area">
+            <div class="specimens-panel">
+              <h3>Mẫu Vật</h3>
+              <div class="specimen-tabs">
+                <button class="specimen-tab active" data-category="cells">Tế Bào</button>
+                <button class="specimen-tab" data-category="tissues">Mô</button>
+                <button class="specimen-tab" data-category="microbes">Vi Sinh</button>
+              </div>
+
+              <div class="specimen-category active" id="cells-specimens">
+                <div class="specimen-list">
+                  <div class="specimen" data-specimen="plant">
+                    <div class="specimen-slide">
+                      <i class="fas fa-leaf"></i>
+                    </div>
+                    <span>Tế bào thực vật</span>
+                  </div>
+                  <div class="specimen" data-specimen="animal">
+                    <div class="specimen-slide">
+                      <i class="fas fa-circle"></i>
+                    </div>
+                    <span>Tế bào động vật</span>
+                  </div>
+                  <div class="specimen" data-specimen="nerve">
+                    <div class="specimen-slide">
+                      <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <span>Tế bào thần kinh</span>
+                  </div>
+                  <div class="specimen" data-specimen="muscle">
+                    <div class="specimen-slide">
+                      <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <span>Tế bào cơ</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="specimen-category" id="tissues-specimens">
+                <div class="specimen-list">
+                  <div class="specimen" data-specimen="leaf">
+                    <div class="specimen-slide">
+                      <i class="fas fa-seedling"></i>
+                    </div>
+                    <span>Mô lá</span>
+                  </div>
+                  <div class="specimen" data-specimen="root">
+                    <div class="specimen-slide">
+                      <i class="fas fa-tree"></i>
+                    </div>
+                    <span>Mô rễ</span>
+                  </div>
+                  <div class="specimen" data-specimen="skin">
+                    <div class="specimen-slide">
+                      <i class="fas fa-hand-paper"></i>
+                    </div>
+                    <span>Mô da</span>
+                  </div>
+                  <div class="specimen" data-specimen="blood">
+                    <div class="specimen-slide">
+                      <i class="fas fa-tint"></i>
+                    </div>
+                    <span>Máu</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="specimen-category" id="microbes-specimens">
+                <div class="specimen-list">
+                  <div class="specimen" data-specimen="bacteria">
+                    <div class="specimen-slide">
+                      <i class="fas fa-bacterium"></i>
+                    </div>
+                    <span>Vi khuẩn</span>
+                  </div>
+                  <div class="specimen" data-specimen="virus">
+                    <div class="specimen-slide">
+                      <i class="fas fa-virus"></i>
+                    </div>
+                    <span>Virus</span>
+                  </div>
+                  <div class="specimen" data-specimen="yeast">
+                    <div class="specimen-slide">
+                      <i class="fas fa-circle-notch"></i>
+                    </div>
+                    <span>Nấm men</span>
+                  </div>
+                  <div class="specimen" data-specimen="protozoa">
+                    <div class="specimen-slide">
+                      <i class="fas fa-swimming-pool"></i>
+                    </div>
+                    <span>Động vật nguyên sinh</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="staining-section">
+                <h4>Nhuộm mẫu</h4>
+                <div class="stain-options">
+                  <button class="stain-btn" data-stain="none">Không nhuộm</button>
+                  <button class="stain-btn" data-stain="methylene">Methylene Blue</button>
+                  <button class="stain-btn" data-stain="iodine">Iod</button>
+                  <button class="stain-btn" data-stain="gram">Gram</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="microscope-workspace">
+              <div class="microscope">
+                <div class="eyepiece">
+                  <div class="view-area" id="microscopeView">
+                    <div class="crosshair"></div>
+                    <div class="cell-display" id="cellDisplay">
+                      <p>Chọn mẫu vật để quan sát</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="objective-lenses">
+                  <div class="objective active" data-magnification="10">10x</div>
+                  <div class="objective" data-magnification="40">40x</div>
+                  <div class="objective" data-magnification="100">100x</div>
+                </div>
+              </div>
+
+              <div class="microscope-controls">
+                <div class="control-group">
+                  <label>Độ sáng:</label>
+                  <input type="range" id="brightness" min="20" max="100" value="70">
+                </div>
+                <div class="control-group">
+                  <label>Độ tương phản:</label>
+                  <input type="range" id="contrast" min="50" max="150" value="100">
+                </div>
+                <div class="control-group">
+                  <label>Lấy nét:</label>
+                  <input type="range" id="focus" min="0" max="100" value="50">
+                </div>
+              </div>
+            </div>
+
+            <div class="observation-panel">
+              <h3>Quan Sát</h3>
+              <div class="observation-display" id="observationDisplay">
+                <div class="info-item">
+                  <span>Độ phóng đại:</span>
+                  <span id="magnificationValue">10x</span>
+                </div>
+                <div class="info-item">
+                  <span>Mẫu vật:</span>
+                  <span id="specimenType">Chưa chọn</span>
+                </div>
+                <div class="description" id="cellDescription">
+                  Chọn mẫu vật để xem mô tả chi tiết
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2025 Phòng Thí Nghiệm Ảo. Được tạo cho mục đích giáo dục.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+  <Script src="firebase-config.js" type="module"></Script>
+</body>
+
+</html>

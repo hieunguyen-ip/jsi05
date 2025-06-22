@@ -1,0 +1,1235 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.95);
+  min-height: 100vh;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styles */
+.header {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo i {
+  font-size: 2rem;
+  color: #3498db;
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: rgba(52, 152, 219, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Main Content */
+.main {
+  padding: 2rem;
+}
+
+.section {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Home Section */
+.hero {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  margin-bottom: 3rem;
+}
+
+.experiment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.experiment-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.experiment-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+  font-size: 3rem;
+  color: #3498db;
+  margin-bottom: 1rem;
+}
+
+.experiment-card h3 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.experiment-card p {
+  color: #7f8c8d;
+  margin-bottom: 1.5rem;
+}
+
+.start-btn {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.start-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+/* Lab Container */
+.lab-container {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.lab-container h2 {
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 2rem;
+}
+
+/* Chemistry Experiment */
+.experiment-area {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 2rem;
+  min-height: 500px;
+}
+
+.reagents-panel,
+.results-panel {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.reagents-panel h3,
+.results-panel h3 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.reagent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.reagent {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reagent:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.reagent-bottle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.reagent-bottle.red {
+  background: #e74c3c;
+}
+.reagent-bottle.blue {
+  background: #3498db;
+}
+.reagent-bottle.yellow {
+  background: #f39c12;
+}
+.reagent-bottle.purple {
+  background: #9b59b6;
+}
+
+/* New Chemical Colors */
+.reagent-bottle.cyan {
+  background: #17a2b8;
+}
+.reagent-bottle.orange {
+  background: #fd7e14;
+}
+.reagent-bottle.silver {
+  background: #6c757d;
+}
+.reagent-bottle.violet {
+  background: #6f42c1;
+}
+.reagent-bottle.lightblue {
+  background: #007bff;
+}
+.reagent-bottle.orange-light {
+  background: #ffc107;
+}
+.reagent-bottle.pink {
+  background: #e83e8c;
+}
+.reagent-bottle.brown {
+  background: #795548;
+}
+
+/* Workspace */
+.workspace {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 2rem;
+  position: relative;
+}
+
+.beaker-container {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.beaker {
+  width: 120px;
+  height: 150px;
+  border: 4px solid #34495e;
+  border-top: 6px solid #34495e;
+  border-radius: 0 0 20px 20px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+}
+
+.liquid {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 0;
+  background: linear-gradient(180deg, transparent 0%, #3498db 100%);
+  transition: all 0.5s ease;
+  border-radius: 0 0 16px 16px;
+}
+
+.liquid::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: surface-ripple 2s infinite;
+}
+
+@keyframes surface-ripple {
+  0%,
+  100% {
+    transform: scaleX(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scaleX(1.1);
+    opacity: 0.3;
+  }
+}
+
+/* Volume indicators */
+.beaker-markings {
+  position: absolute;
+  right: -15px;
+  top: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.beaker-markings::before,
+.beaker-markings::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 10px;
+  height: 2px;
+  background: #34495e;
+}
+
+.beaker-markings::before {
+  top: 25%;
+}
+
+.beaker-markings::after {
+  top: 50%;
+}
+
+.beaker-label {
+  text-align: center;
+  margin-top: 1rem;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.control-btn {
+  background: #34495e;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.control-btn:hover {
+  background: #2c3e50;
+  transform: translateY(-2px);
+}
+
+/* Results Panel */
+.reaction-display {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  min-height: 100px;
+  border-left: 4px solid #3498db;
+}
+
+.properties-display {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.property {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background: white;
+  border-radius: 5px;
+}
+
+/* Biology Section */
+.microscope-area {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 2rem;
+  min-height: 600px;
+}
+
+.specimens-panel,
+.observation-panel {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.specimen-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.specimen {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.specimen:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.specimen-slide {
+  width: 40px;
+  height: 40px;
+  background: #ecf0f1;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #2c3e50;
+}
+
+/* Microscope */
+.microscope-workspace {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.microscope {
+  background: #34495e;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.eyepiece {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: #2c3e50;
+  padding: 20px;
+  margin-bottom: 1rem;
+}
+
+.view-area {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: white;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.crosshair::before,
+.crosshair::after {
+  content: "";
+  position: absolute;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.crosshair::before {
+  width: 1px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.crosshair::after {
+  height: 1px;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.cell-display {
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #2c3e50;
+  background: #f8f9fa;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Staining effects */
+.stained-methylene {
+  filter: hue-rotate(240deg) saturate(1.5);
+}
+
+.stained-iodine {
+  filter: hue-rotate(30deg) saturate(1.3) brightness(0.8);
+}
+
+.stained-gram {
+  filter: hue-rotate(280deg) saturate(1.8) contrast(1.2);
+}
+
+/* Advanced cell structures */
+.mitochondria {
+  position: absolute;
+  width: 6px;
+  height: 12px;
+  background: #ff6b6b;
+  border-radius: 50%;
+  animation: float 4s infinite ease-in-out;
+}
+
+.chloroplast {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #4ecdc4;
+  border-radius: 50%;
+  animation: float 3s infinite ease-in-out;
+}
+
+.vacuole {
+  position: absolute;
+  width: 25%;
+  height: 25%;
+  background: rgba(52, 152, 219, 0.3);
+  border-radius: 50%;
+  border: 2px solid #3498db;
+}
+
+/* Reagent Tabs */
+.reagent-tabs,
+.specimen-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.reagent-tab,
+.specimen-tab {
+  background: #ecf0f1;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.reagent-tab.active,
+.specimen-tab.active,
+.reagent-tab:hover,
+.specimen-tab:hover {
+  background: #3498db;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.reagent-category,
+.specimen-category {
+  display: none;
+}
+
+.reagent-category.active,
+.specimen-category.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Mol Input Section */
+.mol-input-section {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  border: 2px solid #3498db;
+}
+
+.mol-input-section h4 {
+  color: #2c3e50;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+}
+
+.mol-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.mol-controls label {
+  font-weight: 500;
+  color: #2c3e50;
+  min-width: 60px;
+}
+
+.mol-controls input[type="number"] {
+  flex: 1;
+  padding: 0.5rem;
+  border: 2px solid #ecf0f1;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.mol-controls input[type="number"]:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.mol-unit {
+  font-weight: 500;
+  color: #7f8c8d;
+  min-width: 30px;
+}
+
+.concentration-info {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+.concentration-info span {
+  font-weight: 500;
+}
+
+/* Staining Section */
+.staining-section {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  border: 2px solid #2ecc71;
+}
+
+.staining-section h4 {
+  color: #2c3e50;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+}
+
+.stain-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.stain-btn {
+  background: #ecf0f1;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.stain-btn:hover {
+  background: #2ecc71;
+  color: white;
+  transform: translateY(-1px);
+}
+
+.stain-btn.active {
+  background: #27ae60;
+  color: white;
+}
+
+/* Enhanced Properties Display */
+.properties-display {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.property {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background: white;
+  border-radius: 5px;
+  border-left: 4px solid #3498db;
+}
+
+.property.warning {
+  border-left-color: #f39c12;
+  background: #fef9e7;
+}
+
+.property.danger {
+  border-left-color: #e74c3c;
+  background: #fdf2f2;
+}
+
+/* Enhanced Beaker */
+.beaker {
+  width: 120px;
+  height: 150px;
+  border: 4px solid #34495e;
+  border-top: 6px solid #34495e;
+  border-radius: 0 0 20px 20px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+}
+
+.liquid {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 0;
+  background: linear-gradient(180deg, transparent 0%, #3498db 100%);
+  transition: all 0.5s ease;
+  border-radius: 0 0 16px 16px;
+}
+
+.liquid::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: surface-ripple 2s infinite;
+}
+
+@keyframes surface-ripple {
+  0%,
+  100% {
+    transform: scaleX(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scaleX(1.1);
+    opacity: 0.3;
+  }
+}
+
+/* Volume indicators */
+.beaker-markings {
+  position: absolute;
+  right: -15px;
+  top: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.beaker-markings::before,
+.beaker-markings::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 10px;
+  height: 2px;
+  background: #34495e;
+}
+
+.beaker-markings::before {
+  top: 25%;
+}
+
+.beaker-markings::after {
+  top: 50%;
+}
+
+.beaker-label {
+  text-align: center;
+  margin-top: 1rem;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.control-btn {
+  background: #34495e;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.control-btn:hover {
+  background: #2c3e50;
+  transform: translateY(-2px);
+}
+
+/* Results Panel */
+.reaction-display {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  min-height: 100px;
+  border-left: 4px solid #3498db;
+}
+
+.properties-display {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.property {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background: white;
+  border-radius: 5px;
+}
+
+/* Biology Section */
+.microscope-area {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 2rem;
+  min-height: 600px;
+}
+
+.specimens-panel,
+.observation-panel {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.specimen-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.specimen {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.specimen:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.specimen-slide {
+  width: 40px;
+  height: 40px;
+  background: #ecf0f1;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #2c3e50;
+}
+
+/* Microscope */
+.microscope-workspace {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.microscope {
+  background: #34495e;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.eyepiece {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: #2c3e50;
+  padding: 20px;
+  margin-bottom: 1rem;
+}
+
+.view-area {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: white;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.crosshair::before,
+.crosshair::after {
+  content: "";
+  position: absolute;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.crosshair::before {
+  width: 1px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.crosshair::after {
+  height: 1px;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.cell-display {
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #2c3e50;
+  background: #f8f9fa;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Staining effects */
+.stained-methylene {
+  filter: hue-rotate(240deg) saturate(1.5);
+}
+
+.stained-iodine {
+  filter: hue-rotate(30deg) saturate(1.3) brightness(0.8);
+}
+
+.stained-gram {
+  filter: hue-rotate(280deg) saturate(1.8) contrast(1.2);
+}
+
+/* Advanced cell structures */
+.mitochondria {
+  position: absolute;
+  width: 6px;
+  height: 12px;
+  background: #ff6b6b;
+  border-radius: 50%;
+  animation: float 4s infinite ease-in-out;
+}
+
+.chloroplast {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #4ecdc4;
+  border-radius: 50%;
+  animation: float 3s infinite ease-in-out;
+}
+
+.vacuole {
+  position: absolute;
+  width: 25%;
+  height: 25%;
+  background: rgba(52, 152, 219, 0.3);
+  border-radius: 50%;
+  border: 2px solid #3498db;
+}
+
+/* Chemical Summary Styles */
+.chemical-summary {
+  margin: 1rem 0;
+}
+
+.chemical-item {
+  background: #f8f9fa;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  border-radius: 5px;
+  border-left: 3px solid #3498db;
+}
+
+.chemical-item strong {
+  color: #2c3e50;
+  font-size: 1rem;
+}
+
+.chemical-item small {
+  color: #7f8c8d;
+  display: block;
+  margin-top: 0.2rem;
+}
+
+.reaction-highlight {
+  background: #e8f5e8;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid #27ae60;
+  margin-top: 1rem;
+}
+
+.reaction-highlight p {
+  margin: 0.3rem 0;
+}
+
+.reaction-highlight strong {
+  color: #27ae60;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav {
+    gap: 1rem;
+  }
+
+  .experiment-area,
+  .microscope-area {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .main {
+    padding: 1rem;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .experiment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reagent-tabs,
+  .specimen-tabs {
+    flex-wrap: wrap;
+  }
+
+  .reagent-tab,
+  .specimen-tab {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .mol-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.3rem;
+  }
+
+  .stain-options {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animation Classes */
+.heating {
+  animation: heat 1s infinite alternate;
+}
+
+@keyframes heat {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(30deg);
+  }
+}
+
+.bubbling {
+  animation: bubble 0.5s infinite;
+}
+
+@keyframes bubble {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Cell Animations */
+.cell-structure {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: radial-gradient(circle, #e8f5e8 0%, #c8e6c9 50%, #a5d6a7 100%);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.nucleus {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  height: 30%;
+  background: #4caf50;
+  border-radius: 50%;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.organelle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #2e7d32;
+  border-radius: 50%;
+  animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.organelle:nth-child(2) {
+  top: 20%;
+  left: 30%;
+  animation-delay: 0.5s;
+}
+.organelle:nth-child(3) {
+  top: 30%;
+  right: 25%;
+  animation-delay: 1s;
+}
+.organelle:nth-child(4) {
+  bottom: 25%;
+  left: 25%;
+  animation-delay: 1.5s;
+}
+.organelle:nth-child(5) {
+  bottom: 30%;
+  right: 30%;
+  animation-delay: 2s;
+}
