@@ -51,7 +51,8 @@ body {
   gap: 2rem;
 }
 
-.nav-link {
+.nav-link,
+.exam-nav-link {
   color: white;
   text-decoration: none;
   padding: 0.5rem 1rem;
@@ -63,7 +64,10 @@ body {
 }
 
 .nav-link:hover,
-.nav-link.active {
+.exam-nav-link:hover,
+.nav-link.active
+.exam-nav-link:active
+{
   background: rgba(52, 152, 219, 0.2);
   transform: translateY(-2px);
 }

@@ -5,9 +5,402 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bài Kiểm Tra</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .exam-setup {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .exam-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            display: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h1,
+        h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #34495e;
+            font-size: 1.1em;
+        }
+
+        select,
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e8ed;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        select:focus,
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        button:active {
+            transform: translateY(-1px);
+        }
+
+        .timer {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 20px;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .question {
+            margin-bottom: 30px;
+            padding: 25px;
+            border: 2px solid #e1e8ed;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .question:hover {
+            border-color: #667eea;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .question.answered {
+            border-color: #2ecc71;
+            background: rgba(46, 204, 113, 0.1);
+        }
+
+        .question-title {
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            color: #2c3e50;
+            line-height: 1.5;
+        }
+
+        .question-number {
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .options {
+            margin-left: 0;
+        }
+
+        .option {
+            margin-bottom: 15px;
+            padding: 12px 15px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .option:hover {
+            background: rgba(102, 126, 234, 0.1);
+            border-color: #667eea;
+        }
+
+        .option input {
+            width: auto;
+            margin-right: 12px;
+            transform: scale(1.2);
+        }
+
+        .option label {
+            cursor: pointer;
+            margin-bottom: 0;
+            font-weight: 500;
+            color: #34495e;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            margin-top: 30px;
+            width: 100%;
+            padding: 18px;
+            font-size: 18px;
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .submit-btn.enabled {
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        .submit-btn.enabled:hover {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+        }
+
+        .result {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            display: none;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .score {
+            font-size: 3em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .progress-container {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .progress-bar {
+            background: #e1e8ed;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-fill {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        .progress-text {
+            font-size: 0.9em;
+            color: #34495e;
+            font-weight: 600;
+        }
+
+        .validation-message {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            75% {
+                transform: translateX(5px);
+            }
+        }
+
+        .result-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .result-item.correct {
+            border: 2px solid #2ecc71;
+            background: rgba(46, 204, 113, 0.1);
+        }
+
+        .result-item.incorrect {
+            border: 2px solid #e74c3c;
+            background: rgba(231, 76, 60, 0.1);
+        }
+
+        .result-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 
 <body>
+    <div class="exam-setup" id="examSetup">
+        <h1>Thiết lập bài kiểm tra</h1>
+
+        <div class="form-group">
+            <label for="subject">Chọn môn học:</label>
+            <select id="subject">
+                <option value="">-- Chọn môn học --</option>
+                <option value="xoai">Hóa học</option>
+                <option value="sinh hoc">Sinh học</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="questionCount">Số lượng câu hỏi:</label>
+            <select id="questionCount">
+                <option value="5">5 câu</option>
+                <option value="10">10 câu</option>
+                <option value="15">15 câu</option>
+                <option value="20">20 câu</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="timeLimit">Thời gian làm bài (phút):</label>
+            <select id="timeLimit">
+                <option value="10">10 phút</option>
+                <option value="15">15 phút</option>
+                <option value="30">30 phút</option>
+                <option value="45">45 phút</option>
+                <option value="60">60 phút</option>
+            </select>
+        </div>
+
+        <button onclick="startExam()">Bắt đầu làm bài</button>
+    </div>
+
+    <div class="exam-content" id="examContent">
+        <div class="timer" id="timer">00:00</div>
+        <h2 id="examTitle">Bài kiểm tra</h2>
+
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">Đã trả lời: 0/0 câu hỏi</div>
+        </div>
+
+        <div class="validation-message" id="validationMessage">
+            Vui lòng trả lời tất cả các câu hỏi trước khi nộp bài!
+        </div>
+
+        <div id="questionsContainer"></div>
+        <button class="submit-btn" id="submitBtn" onclick="submitExam()">Nộp bài</button>
+    </div>
+
+    <div class="result" id="resultContainer">
+        <h2>Kết quả bài kiểm tra</h2>
+        <div class="score" id="score"></div>
+        <div id="resultDetails"></div>
+        <button onclick="resetExam()">Làm lại</button>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/12.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore-compat.js"></script>
     <script src="firebase-config.js" type="module"></script>
 </body>
 
