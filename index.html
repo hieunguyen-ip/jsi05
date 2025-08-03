@@ -395,8 +395,21 @@
     </footer>
   </div>
 
+  <audio id="bgMusic" src="/Hieu/background-music-381788 (1).mp3" loop></audio>
+  <script>
+    // Phát nhạc khi người dùng có tương tác đầu tiên
+    document.addEventListener('DOMContentLoaded', function () {
+      const bgMusic = document.getElementById('bgMusic');
+      function playMusicOnce() {
+        bgMusic.volume = 100; // Nhạc nhẹ nhàng
+        bgMusic.play();
+        document.removeEventListener('click', playMusicOnce);
+      }
+      document.addEventListener('click', playMusicOnce);
+    });
+  </script>
   <script src="script.js"></script>
-  <Script src="firebase-config.js" type="module"></Script>
+  <script src="firebase-config.js" type="module"></script>
 </body>
 
 </html>
